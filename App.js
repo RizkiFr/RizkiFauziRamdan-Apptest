@@ -16,22 +16,22 @@ import axios from 'axios';
 import Toast from 'react-native-simple-toast';
 
 axios.interceptors.response.use(
-  response => response,
-  error => {
-    Toast.show(error.response?.data?.message, Toast.LONG);
-    return Promise.reject(error)
-  }
+	response => response,
+	error => {
+		Toast.show(error.response?.data?.message, Toast.LONG);
+		return Promise.reject(error)
+	}
 )
 
 const App: () => Node = () => {
-  return (
-    <>
-      <StatusBar translucent backgroundColor='transparent' barStyle='light-content' />
-      <Provider store={store}>
-        <AppContainer />
-      </Provider>
-    </>
-  );
+	return (
+		<>
+			<StatusBar translucent backgroundColor='transparent' barStyle='light-content' />
+			<Provider store={store}>
+				<AppContainer />
+			</Provider>
+		</>
+	);
 };
 
 export default App;

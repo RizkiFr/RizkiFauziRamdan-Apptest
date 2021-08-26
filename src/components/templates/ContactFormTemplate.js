@@ -5,13 +5,14 @@ import { colors, spacing } from '../../styles'
 import { AvatarPicker, Button, Input } from '../atoms'
 
 const ContactFormTemplate = (props) => {
+    const age = props.data.age ? props.data.age?.toString() : ''
     return (
         <ScrollView style={style.container}>
             <StatusBar translucent backgroundColor='transparent' barStyle='dark-content' />
             <AvatarPicker onImagePicked={v => props.onChangeText(v, 'photo')} photo={props.data.photo} />
             <Input label='Nama Depan' value={props.data.firstName} onChangeText={v => props.onChangeText(v, 'firstName')} />
             <Input label='Nama Belakang' value={props.data.lastName} onChangeText={v => props.onChangeText(v, 'lastName')} />
-            <Input label='Umur' value={props.data.age?.toString()} onChangeText={v => props.onChangeText(parseInt(v), 'age')} keyboardType='number-pad' />
+            <Input label='Umur' value={age} onChangeText={v => props.onChangeText(parseInt(v), 'age')} keyboardType='number-pad' />
             <Button title='SIMPAN' onPress={props.onSave} loading={props.loading} />
         </ScrollView>
     )
